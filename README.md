@@ -1,3 +1,4 @@
+# Portable Azure Functions
 The Azure Functions runtime can be run in many environments. As an open-source project, you can use the exact same Azure Functions runtime locally, on Kubernetes, and on Azure. This simple example project outlines steps to run an Azure Function. Below are steps to run the Azure Function:
  - Locally as an Azure Function
  - Locally as a Docker image
@@ -5,6 +6,8 @@ The Azure Functions runtime can be run in many environments. As an open-source p
  - On Azure Functions (fully serverless)
 
 This project includes a basic HTTP-triggered `Hello World` function (under http/index.js). If you are new to the Azure Functions programming model, you can get started with this [developers guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference).
+
+_The function itself is a very standard Azure Function._ The only difference is the simple Dockerfile at the root of the function app.
 
 ➡️ Before getting started, remove `-REMOVE` from `local.settings.json-REMOVE` ⬅️ 
 The file should be named `local.settings.json`. This will now not be committed to source control. `local.settings.json` should never be committed to source control as it often contains connection strings and secrets. 
