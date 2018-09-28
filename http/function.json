@@ -1,0 +1,21 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "sayhello/{name}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }  
+  ]
+}
