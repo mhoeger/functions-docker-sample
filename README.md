@@ -1,5 +1,7 @@
 # Portable Azure Functions
-The Azure Functions runtime can be run in many environments. As an open-source project, you can use the exact same Azure Functions runtime locally, on Kubernetes, and on Azure. This simple example project outlines steps to run an Azure Function. Below are steps to run the Azure Function:
+The Azure Functions runtime can be run in many environments. As an open-source project, you can use the exact same Azure Functions runtime locally, on Kubernetes, and on Azure. 
+
+This simple example project outlines an easy set of steps to run an Azure Function in multiple environments. Below are steps to run the Azure Function:
  - Locally as an Azure Function
  - Locally as a Docker image
  - On Kubernetes
@@ -9,7 +11,7 @@ This project includes a basic HTTP-triggered `Hello World` function (under http/
 
 _The function itself is a very standard Azure Function._ The only difference is the simple Dockerfile at the root of the function app.
 
-➡️ Before getting started, remove `-REMOVE` from `local.settings.json-REMOVE` ⬅️ 
+➡️ Before getting started, remove `-REMOVE` from `local.settings.json-REMOVE` ⬅️     
 The file should be named `local.settings.json`. This will now not be committed to source control. `local.settings.json` should never be committed to source control as it often contains connection strings and secrets. 
 
 ## Running your function locally
@@ -17,11 +19,16 @@ You can run your Azure function locally using the `func` command line tool. Alte
 
 ### Running as an Azure Function locally
 The prerequisites for running locally as an Azure Function are:
- - `npm` - comes with [Node.js download](https://nodejs.org)
+ - `node` - [Node.js](https://nodejs.org) v8+
  - `func` - command line tool for Azure Functions
-    - Install using `npm i -g azure-functions-core-tools`
+    - Install using `npm i -g azure-functions-core-tools`. `npm` comes installed with [Node.js](https://nodejs.org)
+ - _Recommended:_ [Visual Studio Code](https://code.visualstudio.com/download) and the Visual Studio Code [Azure Functions extension](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
 
-To run this function in this environment:
+To run this function with Visual Studio Code:
+ - Press `F5` 
+ - Navigate to [http://localhost:7071/api/sayhello/My-Input](http://localhost:7071/api/sayhello/My-Input)
+
+To run this function otherwise:
  - Run `func host start`
  - Navigate to [http://localhost:7071/api/sayhello/My-Input](http://localhost:7071/api/sayhello/My-Input)
 
@@ -41,9 +48,11 @@ The prerequisites for running on Kubernetes:
  - Follow the prerequisites and steps for running an image locally
  - `kubectl` - install [from here](https://kubernetes.io/docs/tasks/tools/install-kubectl)
  - It is assumed that you have already deployed a Kubernetes instance and connected with `kubectl`
+   - Alternatively, you can follow this tutorial to [deploy an Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough)
 
 To run this function in this environment:
- - Publish image to [Docker Hub](https://hub.docker.com) using `docker push IMAGENAME`
+ - Publish your image to a registry service such as [Docker Hub](https://hub.docker.com) using `docker push IMAGENAME`
+   - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry) is also an option for enterprises
  - Create a Kubernetes deployment with the published image
    - For example: `kubectl run DEPLOYMENTNAME --replicas=5 --image=IMAGENAME --port=80`
  - Expose Kubernetes deployment
