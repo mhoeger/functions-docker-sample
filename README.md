@@ -6,6 +6,10 @@ The Azure Functions runtime can be run in many environments. As an open-source p
 
 This project includes a basic HTTP-triggered `Hello World` function (under http/index.js). If you are new to the Azure Functions programming model, you can get started with this [developers guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference).
 
+```
+NOTE: To begin, remove "-REMOVE" from "local.settings.json-REMOVE" so that the file name is "local.settings.json". This will now not be committed to source control. local.settings.json should never be committed to source control as it often contains connection strings and secrets. 
+```
+
 ## Running your function locally
 You can run your Azure function locally using the `func` command line tool. Alternatively, you can create a docker image and run that image locally.
 
