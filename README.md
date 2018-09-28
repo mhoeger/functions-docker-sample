@@ -7,7 +7,7 @@ This simple example project outlines an easy set of steps to run an Azure Functi
  - On Kubernetes
  - On Azure Functions (fully serverless)
 
-This project includes a basic HTTP-triggered `Hello World` function (under http/index.js). If you are new to the Azure Functions programming model, you can get started with this [developers guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference).
+This project includes a basic HTTP-triggered `Hello World` function (under http/index.js). If you are new to the Azure Functions programming model, this [developers guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference) is helpful for learning important concepts.
 
 _The function itself is a very standard Azure Function._ The only difference is the simple Dockerfile at the root of the function app.
 
@@ -18,13 +18,13 @@ The file should be named `local.settings.json`. This will now not be committed t
 You can run your Azure function locally using the `func` command line tool. Alternatively, you can create a docker image and run that image locally.
 
 ### Running as an Azure Function locally
-The prerequisites for running locally as an Azure Function are:
+Prerequisites:
  - `node` - [Node.js](https://nodejs.org) v8+
  - `func` - command line tool for Azure Functions
     - Install using `npm i -g azure-functions-core-tools`. `npm` comes installed with [Node.js](https://nodejs.org)
  - _Recommended:_ [Visual Studio Code](https://code.visualstudio.com/download) and the Visual Studio Code [Azure Functions extension](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
 
-To run this function with Visual Studio Code:
+To run and breakpoint debug this function with Visual Studio Code:
  - Press `F5` 
  - Navigate to [http://localhost:7071/api/sayhello/My-Input](http://localhost:7071/api/sayhello/My-Input)
 
@@ -33,7 +33,7 @@ To run this function otherwise:
  - Navigate to [http://localhost:7071/api/sayhello/My-Input](http://localhost:7071/api/sayhello/My-Input)
 
 ### Run as a docker image locally
-The prerequisites for running locally as a docker image:
+Prerequisites:
  - `docker` - Install docker [for Mac](https://docs.docker.com/docker-for-mac/install) or [for Windows](https://docs.docker.com/docker-for-windows/install)
 
 To run this function in this environment:
@@ -44,7 +44,7 @@ To run this function in this environment:
  - Stop with `docker stop [IMAGE ID]`
 
 ## Run image on Kubernetes
-The prerequisites for running on Kubernetes:
+Prerequisites:
  - Follow the prerequisites and steps for running an image locally
  - `kubectl` - install [from here](https://kubernetes.io/docs/tasks/tools/install-kubectl)
  - It is assumed that you have already deployed a Kubernetes instance and connected with `kubectl`
@@ -70,8 +70,7 @@ To delete a deployment:
 You can deploy your Azure Function in one of the following ways:
  - Deploy using the Visual Studio Code [Azure Functions extension](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
  - Link to your GitHub repository and set up a [continuous deployment](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) from that repo 
- - Deploy with other methods like [run from package]https://docs.microsoft.com/azure/azure-functions/run-functions-from-deployment-package
- - Set up a contiuous 
+ - Deploy with other methods like [run from package](https://docs.microsoft.com/azure/azure-functions/run-functions-from-deployment-package)
 
 ## Do more!
  - Try different trigger types and explore input/output bindings using [extensions](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) to integrate with other Azure services
